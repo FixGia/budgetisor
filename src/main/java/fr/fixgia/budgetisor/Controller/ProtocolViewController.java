@@ -51,8 +51,6 @@ public class ProtocolViewController {
         model.addAttribute("protocolRequest", protocol);
 
         return "protocol/update";
-    }
 
     }
-
-}
+    }
