@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+
+  mongodb:
+    image: mongo
+    volumes:
+      - db_data:/var/lib/mongodb
+    container_name: mongodb
+    ports:
+      - "27018:27017"
+    restart: always
+
+  budgetisor:
+    image: budgetisor
+    build:
+      context: Budgetisor
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mongodb
+
+volumes:
+  db_data: {}
